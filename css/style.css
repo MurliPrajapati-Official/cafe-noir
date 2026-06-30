@@ -5,9 +5,9 @@
 
 :root {
     /* Colors — from PRD */
-    --clr-bg: #FFFFFF;
+    --clr-bg: #FCFBF8;
     --clr-bg-dark: #0F0F10;
-    --clr-surface: #F7F7F5;
+    --clr-surface: #F9F8F5;
 
     --clr-text: #111111;
     --clr-text-2: #666666;
@@ -70,7 +70,8 @@ html {
 body {
     font-family: var(--ff-body);
     color: var(--clr-text);
-    background-color: var(--clr-bg);
+    background: radial-gradient(circle at top, #ffffff 0%, #fcfbf8 65%);
+    background-color: #fcfbf8;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

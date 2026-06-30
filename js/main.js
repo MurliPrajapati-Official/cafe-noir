@@ -11,9 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileNav = document.getElementById('mobileNav');
     const backToTop = document.getElementById('backToTop');
     const reveals = document.querySelectorAll('.reveal');
+    const heroBgImg = document.querySelector('.hero-bg img');
 
-    // ---- Sticky Header ----
+    // ---- Sticky Header & Parallax ----
     let lastScroll = 0;
+    let hasScrolled = false;
+
     function handleScroll() {
         const y = window.scrollY;
 
@@ -31,6 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 backToTop.classList.remove('visible');
             }
+        }
+
+        // Cinematic magazine scale-down parallax effect
+        if (y > 0 && !hasScrolled) {
+            hasScrolled = true;
+            if (heroBgImg) {
+                heroBgImg.style.transition = 'none';
+            }
+        }
+
+        const heroHeight = window.innerHeight;
+        if (y <= heroHeight && heroBgImg) {
+            const scale = 1.15 - (y / heroHeight) * 0.15;
+            const translateVal = (y / heroHeight) * -60;
+            const opacity = 1 - (y / heroHeight) * 0.65;
+            heroBgImg.style.transform = `scale(${Math.max(1.0, scale)}) translateY(${translateVal}px)`;
+            heroBgImg.style.opacity = opacity;
         }
 
         lastScroll = y;
@@ -108,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroBg) {
         heroBg.style.transition = 'transform 20s linear';
         setTimeout(() => {
-            heroBg.style.transform = 'scale(1.08)';
+            heroBg.style.transform = 'scale(1.15)';
         }, 100);
     }
 
