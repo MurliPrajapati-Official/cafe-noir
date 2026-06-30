@@ -1,0 +1,542 @@
+/* ============================================
+   LAYOUT.CSS — Grids, Sections, Positioning
+   ============================================ */
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--s-48);
+}
+
+.container-wide {
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 var(--s-48);
+}
+
+.section-padding {
+    padding: var(--s-120) 0;
+}
+
+/* ---- HEADER ---- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: var(--s-20) 0;
+    transition: background-color 0.4s var(--ease), padding 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: var(--s-12) 0;
+    box-shadow: 0 1px 0 var(--clr-border);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ---- HERO ---- */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--clr-text-inv);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg,
+            rgba(10, 10, 15, 0.78) 0%,
+            rgba(10, 10, 15, 0.45) 50%,
+            rgba(10, 10, 15, 0.25) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-heading {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--clr-text-inv);
+    margin-bottom: var(--s-24);
+}
+
+.hero-heading em {
+    font-style: italic;
+}
+
+.hero-sub {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: var(--s-40);
+    max-width: 420px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--s-16);
+    flex-wrap: wrap;
+}
+
+/* Hero info bar — sits directly below buttons, no blur */
+.hero-info-bar {
+    display: flex;
+    gap: var(--s-48);
+    margin-top: var(--s-40);
+    padding-top: var(--s-32);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ---- STORY SECTION ---- */
+.story-section {
+    display: grid;
+    grid-template-columns: 5fr 4fr 2.5fr;
+    gap: var(--s-80);
+    align-items: center;
+}
+
+.story-images {
+    position: relative;
+    height: 680px;
+}
+
+.img-large {
+    width: 70%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.img-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-small {
+    position: absolute;
+    bottom: -40px;
+    right: 0;
+    width: 55%;
+    height: 55%;
+    overflow: hidden;
+    border: 6px solid var(--clr-bg);
+    box-shadow: var(--shadow-md);
+}
+
+.img-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-content {
+    padding-right: var(--s-24);
+}
+
+.story-content .section-heading {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+}
+
+.story-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.story-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-48);
+}
+
+/* ---- MENU SECTION ---- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--s-24);
+    margin-top: var(--s-12);
+}
+
+/* ---- GALLERY SECTION ---- */
+.gallery-section {
+    padding: var(--s-96) 0;
+}
+
+.gallery-layout {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: var(--s-64);
+    align-items: center;
+}
+
+.gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--s-16);
+    height: 340px;
+}
+
+.gallery-img {
+    overflow: hidden;
+    height: 100%;
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out);
+}
+
+.gallery-img:hover img {
+    transform: scale(1.04);
+}
+
+/* ---- TESTIMONIALS ---- */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-32);
+    margin-top: var(--s-64);
+}
+
+/* ---- VISIT SECTION ---- */
+.visit-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    min-height: 420px;
+}
+
+.visit-info {
+    padding: var(--s-64);
+}
+
+.visit-info address {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: var(--s-16);
+    margin-bottom: var(--s-32);
+}
+
+.visit-map {
+    min-height: 400px;
+}
+
+.visit-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ---- FOOTER ---- */
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer .footer-grid {
+    max-width: none;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr;
+    gap: var(--s-48);
+    padding: var(--s-80) var(--s-64);
+}
+
+.footer .footer-bottom {
+    max-width: none;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-top: var(--s-16);
+}
+
+.footer-col h5 {
+    font-family: var(--ff-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clr-text-muted);
+    margin-bottom: var(--s-24);
+}
+
+.footer-col ul li {
+    margin-bottom: var(--s-12);
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--clr-text-inv);
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: var(--s-8);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--s-24) var(--s-64);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: var(--clr-text-muted);
+    margin: 0;
+}
+
+/* ---- BACK TO TOP ---- */
+.back-to-top {
+    position: fixed;
+    bottom: var(--s-32);
+    right: var(--s-32);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--clr-accent);
+    color: var(--clr-text-inv);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 50;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1280px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .story-section {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--s-40);
+    }
+
+    .story-features {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--s-32);
+    }
+
+    .story-features .feature {
+        flex: 1 1 45%;
+    }
+
+    .gallery-layout {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: var(--s-32);
+    }
+
+    .gallery-strip {
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+    }
+    .gallery-img {
+        height: 240px;
+    }
+
+    .visit-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .visit-map {
+        min-height: 300px;
+    }
+
+    .footer .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-left: var(--s-40);
+        padding-right: var(--s-40);
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--s-24);
+    }
+
+    .container-wide {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 var(--s-24);
+    }
+
+    .section-padding {
+        padding: var(--s-80) 0;
+    }
+
+    .primary-nav {
+        display: none;
+    }
+
+    .btn-reserve-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-heading {
+        font-size: clamp(2.2rem, 8vw, 3.2rem);
+    }
+
+    .hero-info-bar {
+        flex-direction: column;
+        gap: var(--s-16);
+    }
+
+    .story-section {
+        grid-template-columns: 1fr;
+        gap: var(--s-40);
+    }
+
+    .story-images {
+        height: 400px;
+    }
+
+    .story-features {
+        flex-direction: column;
+    }
+
+    .story-features .feature {
+        flex: 1 1 100%;
+    }
+
+    .gallery-strip {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+    }
+    .gallery-img {
+        height: 200px;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .visit-info {
+        padding: var(--s-40) var(--s-24);
+    }
+
+    .footer .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--s-24);
+        padding-left: var(--s-24);
+        padding-right: var(--s-24);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--s-8);
+        text-align: center;
+        padding-left: var(--s-24);
+        padding-right: var(--s-24);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: var(--s-16);
+    }
+}
+
+@media (max-width: 550px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-strip {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .gallery-img {
+        height: 240px;
+    }
+
+    .footer .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
