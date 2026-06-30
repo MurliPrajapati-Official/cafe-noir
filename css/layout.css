@@ -47,6 +47,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+
+.primary-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
 /* ---- HERO ---- */
@@ -79,10 +87,15 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(135deg,
-            rgba(10, 10, 15, 0.78) 0%,
-            rgba(10, 10, 15, 0.45) 50%,
-            rgba(10, 10, 15, 0.25) 100%);
+    background: 
+        linear-gradient(to bottom, 
+            rgba(15, 15, 17, 0.7) 0%, 
+            rgba(15, 15, 17, 0.25) 50%, 
+            rgba(15, 15, 17, 0.7) 100%),
+        linear-gradient(to right, 
+            rgba(15, 15, 17, 0.55) 0%, 
+            rgba(15, 15, 17, 0.15) 60%, 
+            transparent 100%);
 }
 
 .hero-content {
@@ -91,13 +104,13 @@
 }
 
 .hero-text {
-    max-width: 600px;
+    max-width: 650px;
 }
 
 .hero-heading {
-    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-size: clamp(3rem, 6.2vw, 5.2rem);
     font-weight: 400;
-    line-height: 1.08;
+    line-height: 1.15;
     letter-spacing: -0.01em;
     color: var(--clr-text-inv);
     margin-bottom: var(--s-24);
@@ -108,24 +121,26 @@
 }
 
 .hero-sub {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.05rem;
-    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
     margin-bottom: var(--s-40);
-    max-width: 420px;
+    max-width: 480px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: var(--s-16);
+    gap: var(--s-20);
     flex-wrap: wrap;
 }
 
 /* Hero info bar — sits directly below buttons, no blur */
 .hero-info-bar {
     display: flex;
-    gap: var(--s-48);
-    margin-top: var(--s-40);
+    gap: var(--s-64);
+    margin-top: var(--s-48);
     padding-top: var(--s-32);
     border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
